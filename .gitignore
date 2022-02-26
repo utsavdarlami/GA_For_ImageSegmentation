@@ -1,0 +1,10 @@
+.ipynb_checkpoints
+dataset/
+.dir-locals.el
+*.~
+
+# python 
+__pycache__
+*.pkl
+
+notebooks/
