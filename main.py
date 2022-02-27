@@ -4,9 +4,9 @@ import os
 import numpy as np
 from scipy import stats
 from skimage import color, io
-import sys
 from loguru import logger
 from segmentation import GASegmentation
+
 
 def is_sorted(a: np.ndarray) -> bool:
     """Check whether the array is in sorted or not in ascending order."""
@@ -70,11 +70,13 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument("path", type=str, help="Image path")
-    parser.add_argument("n", type=int, help="Number of segments", default=2)
+    parser.add_argument("num_segments", type=int, help="Number of segments", default=2)
+    parser.add_argument("num_gen", type=int, help="Number of Generation", default=50)
     args = parser.parse_args()
 
     image_path = args.path
-    n_classes = args.n
+    n_classes = args.num_segments
+    num_generations = args.num_gen
 
     logger.info(image_path)
 
@@ -82,7 +84,7 @@ if __name__ == "__main__":
 
     image_segmenter = GASegmentation(fitness_func=fitness_function,
                                      n_classes=n_classes,
-                                     num_generations=100)
+                                     num_generations=num_generations)
 
     logger.info("Performing Segmentation of image")
     seg_img = image_segmenter.segment(x_image)
