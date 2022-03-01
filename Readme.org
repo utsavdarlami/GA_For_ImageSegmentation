@@ -17,12 +17,12 @@ It is suitable for grayscale image only.
 ** How Genetic Algorithm was implemented 
 I used [[https://github.com/ahmedfgad/GeneticAlgorithmPython][PyGAD]] to implement the Genetic Algorithm because it made easier to carry out this experiment.
 
-** TODO
+** To Work On
 - [ ] Improve fitness function
 
 ** How to run
 
-- ~python main.py <img_path>~
+- ~python main.py <img_path> <num_segments> <num_generation>~
 
 ** Results
 - They can be found on "./outputs"
